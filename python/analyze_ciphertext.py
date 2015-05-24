@@ -17,7 +17,7 @@ def nltk_processing():
     return fdist
 
 
-# count the occurences of words in the text
+# count the occurences of words or characters in the text
 def frequency(arr):
     # count each element in arr
     single_items = []
@@ -37,12 +37,13 @@ def frequency(arr):
 # draw a fancy plot for the distribution of characters withing the text
 def plot():
     # first, split the text into single characters
+    we can't reuse frequency() because we need every occurance of each character
     chars = []
     for c in text:
         if c not in chars:
             chars.append(c)
 
-    # make the ciphertext and computable by NLTK
+    # make the ciphertext computable by NLTK
     my_text = nltk.Text(text)
     my_text.dispersion_plot(chars)
 
