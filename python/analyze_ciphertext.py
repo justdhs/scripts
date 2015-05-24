@@ -1,20 +1,11 @@
 #! /usr/bin/env python
 
-__author__ = "justdhs@github"
+__author__ = "dhs"
 
 import nltk
 
-
-# the ciphertext goes in here, obviously:
-text = ""
-
-def nltk_processing():
-    # make the cipher text computable by the NLTK
-    my_text = nltk.Text(text)
-    # show the unique characters in the text
-    fdist = nltk.FreqDist(text)
-
-    return fdist
+# the ciphertext, obviously
+text =""
 
 
 # count the occurences of words or characters in the text
@@ -34,6 +25,17 @@ def frequency(arr):
     return single_items
 
 
+# make a list with all individual characters, as well as a count
+# expects the return value of frequency(text) as it's passed parameter
+def individual_chars(chars_array):
+    indiv_chars = []
+    for c in chars_array:
+        indiv_chars.append(c[1])
+
+# Note: return value is a tuple!
+    return len(indiv_chars), indiv_chars
+
+
 # draw a fancy plot for the distribution of characters withing the text
 def plot():
     # first, split the text into single characters
@@ -49,8 +51,11 @@ def plot():
 
 
 if __name__ == '__main__':
-    print("Individual characters ordered by frequency:\n", nltk_processing().keys())
-    print("\nCount of individual characters:\n", frequency(text))
+    f = frequency(text)
+    c = individual_chars(f)
+    print("\nCount of individual characters:", c[0])
+    print("\nIndividual characters ordered by frequency:\n", c[1])
+    print("\nCount of individual characters:\n", f)
     print("\nCount of individual words:\n", frequency(text.split()))
 
     # if you want to see a fancy plot
