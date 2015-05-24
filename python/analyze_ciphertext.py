@@ -37,7 +37,7 @@ def frequency(arr):
 # draw a fancy plot for the distribution of characters withing the text
 def plot():
     # first, split the text into single characters
-    we can't reuse frequency() because we need every occurance of each character
+    # we can't reuse frequency() because we need every occurance of each character
     chars = []
     for c in text:
         if c not in chars:
