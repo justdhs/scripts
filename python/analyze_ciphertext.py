@@ -1,11 +1,10 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-__author__ = "dhs"
-
-import nltk
+__author__ = "justdhs@github"
 
 # the ciphertext, obviously
-text =""
+text = ""
 
 
 # count the occurences of words or characters in the text
@@ -26,7 +25,7 @@ def frequency(arr):
 
 
 # make a list with all individual characters, as well as a count
-# expects the return value of frequency(text) as it's passed parameter
+# expects the return value of frequency(text) as its passed parameter
 def individual_chars(chars_array):
     indiv_chars = []
     for c in chars_array:
@@ -36,18 +35,20 @@ def individual_chars(chars_array):
     return len(indiv_chars), indiv_chars
 
 
-# draw a fancy plot for the distribution of characters withing the text
-def plot():
-    # first, split the text into single characters
-    # we can't reuse frequency() because we need every occurance of each character
-    chars = []
-    for c in text:
-        if c not in chars:
-            chars.append(c)
-
-    # make the ciphertext computable by NLTK
-    my_text = nltk.Text(text)
-    my_text.dispersion_plot(chars)
+# # draw a fancy plot for the distribution of characters within the text
+# # you have to uncomment this function, and its call, to use it
+# def plot():
+#     import nltk
+#     # first, split the text into single characters
+#     # we can't reuse frequency() because we need every occurance of each character
+#     chars = []
+#     for c in text:
+#         if c not in chars:
+#             chars.append(c)
+#
+    # # make the ciphertext computable by NLTK
+    # my_text = nltk.Text(text)
+    # my_text.dispersion_plot(chars)
 
 
 if __name__ == '__main__':
@@ -60,5 +61,6 @@ if __name__ == '__main__':
 
     # if you want to see a fancy plot
     # for the distribution of characters withing the text,
-    # uncomment the following function call
+    # uncomment the following function call, as well as the function itself.
+    # you need the Natural Language ToolKit installed
     # plot()
